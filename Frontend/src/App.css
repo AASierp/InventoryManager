@@ -1,0 +1,22 @@
+body {
+  background-color: #333;
+  color: white;
+}
+
+.product-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 15rem;
+  height: 26rem;
+  padding: 2rem;
+  background-color: rgb(11, 11, 11);
+  text-align: center;
+  border: none;
+  box-shadow: 1px 1px 8px 2px #777;
+}
+
+.form-submit-button {
+  margin-top: 1rem;
+  font-weight: bold;
+}

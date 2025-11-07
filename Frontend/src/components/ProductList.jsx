@@ -1,9 +1,4 @@
-import { useState } from "react";
-import { useEffect } from "react";
-import "./App.css";
-import ProductForm from "./components/ProductForm";
-
-function App() {
+function ProductList() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -30,8 +25,6 @@ function App() {
 
   return (
     <>
-      <h1>Inventory Management App</h1>
-      <ProductForm onProductAdded={handleProductAdded} />
       <ul>
         {products.map((p) => (
           <li key={p.id}>
@@ -42,5 +35,3 @@ function App() {
     </>
   );
 }
-
-export default App;
