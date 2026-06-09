@@ -1,37 +1,53 @@
-function ProductList() {
+import { useEffect, useState } from "react";
+import { getProduct } from "../api/productsAPI";
+
+function ProductList({ refreshKey }) {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch("https://localhost:7292/api/products");
-        if (!response.ok) {
-          throw new Error(`Http Error - code ${response.status}`);
-        }
-
-        const data = await response.json();
+        let data = await getProduct();
         setProducts(data);
       } catch (err) {
-        console.error("Error Fetching Products", err);
+        console.log("Error Fetching Products", err);
       }
     };
 
     fetchProducts();
-  }, []);
-
-  const handleProductAdded = (newProduct) => {
-    setProducts((prev) => [...prev, newProduct]);
-  };
+  }, [refreshKey]);
 
   return (
-    <>
-      <ul>
-        {products.map((p) => (
-          <li key={p.id}>
-            {p.name} - {p.quantity} in stock
-          </li>
-        ))}
-      </ul>
-    </>
+    <div className="inventory-container">
+      <h1 style={{ textAlign: "center" }}>Current Inventory</h1>
+      <table className="table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>SKU</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Category</th>
+          </tr>
+        </thead>
+        <tbody>
+          {products.map((e) => (
+            <tr key={e.id}>
+              <td>{e.id}</td>
+              <td>{e.name}</td>
+              <td>{e.description}</td>
+              <td>{e.sku}</td>
+              <td>{e.quantity}</td>
+              <td>{e.price}</td>
+              <td>{e.category}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 }
+
+export default ProductList;

@@ -20,7 +20,7 @@ namespace InventoryManager.api.Controllers
         [HttpPost]
         public async Task<ActionResult<Order>> PlaceOrder(Order order)
         {
-            Product product = await _context.Products.FindAsync(order.ProductId);
+            Product? product = await _context.Products.FindAsync(order.ProductId);
 
             if (product == null)
                 return NotFound($"Product with ID {order.ProductId} not found.");

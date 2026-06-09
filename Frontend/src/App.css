@@ -1,6 +1,42 @@
 body {
-  background-color: #333;
+  background-color: #22333B ;
   color: white;
+}
+
+table {
+  margin: 1rem;
+  border-collapse: collapse;
+  background-color: #5D675B;
+}
+
+th,
+td {
+  border: 1px solid white;
+  padding: 0.5rem;
+}
+
+textarea {
+  min-height: 100px;
+}
+
+input {
+  margin: 3px;
+  box-shadow: 0px 1px 2px 1px #e5e1e1;
+}
+
+.table {
+  max-width: 800px;
+}
+
+.h1-heading {
+  text-align: center;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 5rem;
 }
 
 .product-form {
@@ -8,15 +44,25 @@ body {
   flex-direction: column;
   gap: 0.5rem;
   width: 15rem;
-  height: 26rem;
+  min-height: 35rem;
   padding: 2rem;
-  background-color: rgb(11, 11, 11);
+  background-color: rgba(93,103,91, 1);
   text-align: center;
   border: none;
   box-shadow: 1px 1px 8px 2px #777;
 }
 
-.form-submit-button {
+.inventory-container{
+  margin: 1rem;
+  border-collapse: collapse;
+  background-color: #5D675B;
+  border: none;
+  box-shadow: 1px 1px 8px 2px #777;
+}
+
+.form-update-button,
+.form-submit-button,
+.product-delete-btn {
   margin-top: 1rem;
   font-weight: bold;
 }

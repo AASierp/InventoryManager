@@ -1,44 +1,25 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import "./App.css";
-import ProductForm from "./components/ProductForm";
+import ProductForm from "./components/productAddForm";
+import ProductList from "./components/productList";
+import DeleteProductFrom from "./components/productDeleteForm";
 
 function App() {
-  const [products, setProducts] = useState([]);
+  const [refreshKey, setRefreshKey] = useState(0);
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await fetch("https://localhost:7292/api/products");
-        if (!response.ok) {
-          throw new Error(`Http Error - code ${response.status}`);
-        }
-
-        const data = await response.json();
-        setProducts(data);
-      } catch (err) {
-        console.error("Error Fetching Products", err);
-      }
-    };
-
-    fetchProducts();
-  }, []);
-
-  const handleProductAdded = (newProduct) => {
-    setProducts((prev) => [...prev, newProduct]);
+  const refreshInventory = () => {
+    setRefreshKey((prev) => prev + 1);
   };
 
   return (
     <>
-      <h1>Inventory Management App</h1>
-      <ProductForm onProductAdded={handleProductAdded} />
-      <ul>
-        {products.map((p) => (
-          <li key={p.id}>
-            {p.name} - {p.quantity} in stock
-          </li>
-        ))}
-      </ul>
+      <h1 className="h1-heading">Inventory Management</h1>
+      <div className="main-container">
+        <ProductForm refreshInventory={refreshInventory} />
+        <ProductList refreshKey={refreshKey} />
+        <DeleteProductFrom refreshInventory={refreshInventory} />
+      </div>
     </>
   );
 }
