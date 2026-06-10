@@ -2,7 +2,7 @@
 using InventoryManager.api.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Infrastructure;
+
 
 namespace InventoryManager.api.Controllers
 {
@@ -40,7 +40,7 @@ namespace InventoryManager.api.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Order>> GetOrder(int id)
         {
-            Order order = await _context.Orders.Include(o => o.Product).FirstOrDefaultAsync(o => o.Id == id);
+            Order? order = await _context.Orders.Include(o => o.Product).FirstOrDefaultAsync(o => o.Id == id);
 
             if (order == null)
                 return NotFound();
