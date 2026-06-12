@@ -1,12 +1,12 @@
 body {
-  background-color: #22333B ;
+  background-color: #22333b;
   color: white;
 }
 
 table {
   margin: 1rem;
   border-collapse: collapse;
-  background-color: #5D675B;
+  background-color: #5d675b;
 }
 
 th,
@@ -46,16 +46,16 @@ input {
   width: 15rem;
   min-height: 35rem;
   padding: 2rem;
-  background-color: rgba(93,103,91, 1);
+  background-color: rgba(93, 103, 91, 1);
   text-align: center;
   border: none;
   box-shadow: 1px 1px 8px 2px #777;
 }
 
-.inventory-container{
+.inventory-container {
   margin: 1rem;
   border-collapse: collapse;
-  background-color: #5D675B;
+  background-color: #5d675b;
   border: none;
   box-shadow: 1px 1px 8px 2px #777;
 }
@@ -65,4 +65,23 @@ input {
 .product-delete-btn {
   margin-top: 1rem;
   font-weight: bold;
+}
+
+.nav-link {
+  margin: 5px;
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: white;
+}
+
+.nav-link:hover {
+  color: blue;
+}
+
+.nav-bar {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #5d675b;
 }

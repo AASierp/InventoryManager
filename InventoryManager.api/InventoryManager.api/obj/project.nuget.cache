@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "qAZhzDiUcgs=",
+  "dgSpecHash": "qIokIz3DvB4=",
   "success": true,
-  "projectFilePath": "C:\\Users\\A1\\Desktop\\Archive\\Coding_Projects\\InventoryManager\\InventoryManager.api\\InventoryManager.api\\InventoryManager.api.csproj",
+  "projectFilePath": "C:\\Users\\A1\\Desktop\\Archive\\Coding_Projects\\InventoryManager\\InventoryManager.api\\inventorymanager.api\\InventoryManager.api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\A1\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\A1\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

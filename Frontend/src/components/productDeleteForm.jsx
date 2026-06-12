@@ -22,12 +22,14 @@ export default function DeleteProductForm({ refreshInventory }) {
     <>
       <form onSubmit={handleDelete}>
         <input
-          placeholder = "Enter Product ID"
+          placeholder="Enter Product ID"
           type="text"
           value={id}
           onChange={(event) => setId(event.target.value)}
         />
-        <button  className= "product-delete-btn" type="submit">Delete</button>
+        <button className="product-delete-btn" type="submit">
+          Delete
+        </button>
       </form>
     </>
   );

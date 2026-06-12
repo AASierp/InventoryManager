@@ -1,25 +1,25 @@
-import { useState } from "react";
-import { useEffect } from "react";
+import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
 import "./App.css";
-import ProductForm from "./components/productAddForm";
-import ProductList from "./components/productList";
-import DeleteProductFrom from "./components/productDeleteForm";
+
+import InventoryPage from "./pages/InventoryPage";
+import OrdersPage from "./pages/OrdersPage";
 
 function App() {
-  const [refreshKey, setRefreshKey] = useState(0);
-
-  const refreshInventory = () => {
-    setRefreshKey((prev) => prev + 1);
-  };
-
   return (
     <>
-      <h1 className="h1-heading">Inventory Management</h1>
-      <div className="main-container">
-        <ProductForm refreshInventory={refreshInventory} />
-        <ProductList refreshKey={refreshKey} />
-        <DeleteProductFrom refreshInventory={refreshInventory} />
-      </div>
+      <BrowserRouter>
+        <nav className = "nav-bar">
+          <Link className="nav-link" to="/">Home</Link>
+          <Link className="nav-link" to="/inventory">Inventory</Link>
+          <Link className="nav-link" to="/orders">Orders</Link>
+        </nav>
+
+        <Routes>
+          <Route path="/" element={<InventoryPage />} />
+          <Route path="/inventory" element={<InventoryPage />} />
+          <Route path="/orders" element={<OrdersPage />} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
