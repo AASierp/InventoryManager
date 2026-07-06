@@ -1,7 +1,7 @@
 import { useState } from "react";
-import ProductForm from "../components/productAddForm";
-import ProductList from "../components/productList";
-import DeleteProductForm from "../components/productDeleteForm";
+import ProductForm from "../components/ProductAddForm";
+import ProductList from "../components/ProductList";
+import DeleteProductForm from "../components/ProductDeleteForm";
 
 export default function InventoryPage() {
   const [refreshKey, setRefreshKey] = useState(0);
@@ -11,13 +11,25 @@ export default function InventoryPage() {
   };
 
   return (
-    <>
-      <h1 className="h1-heading">Inventory Management</h1>
-      <div className="main-container">
-        <ProductForm refreshInventory={refreshInventory} />
-        <ProductList refreshKey={refreshKey} />
-        <DeleteProductForm refreshInventory={refreshInventory} />
+    <div>
+      <h1>Inventory Management</h1>
+      <div className="inventory-page-container">
+        <div className="inventory-page-product-form-container">
+          <ProductForm
+            className="page-item"
+            refreshInventory={refreshInventory}
+          />
+          <div className="delete-product-button-container">
+            <DeleteProductForm
+              className="page-item"
+              refreshInventory={refreshInventory}
+            />
+          </div>
+        </div>
+        <div className="inventory-page-product-list-container">
+          <ProductList className="page-item" refreshKey={refreshKey} />
+        </div>
       </div>
-    </>
+    </div>
   );
 }

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { postOrder } from "../api/ordersAPI";
 
-function OrderForm({ refreshInventory }) {
+export default function OrderForm({ refreshInventory }) {
   const [productId, setProductId] = useState("");
   const [quantity, setQuantity] = useState("");
 
@@ -11,25 +11,35 @@ function OrderForm({ refreshInventory }) {
       productId: Number(productId),
       quantity: Number(quantity),
     };
-    try{
-        await postOrder(order);
-        refreshInventory();
-    }catch(error){
-        console.error(error);
-        throw new Error("Order could not be placed.")
+    try {
+      await postOrder(order);
+      refreshInventory();
+    } catch (error) {
+      console.error(error);
+      throw new Error("Order could not be placed.");
     }
   };
-  
 
   return (
-
-    <>
-        <form onSubmit={handleOrder}>
-            <input type="text" />
-            <input type="text" />
-            <button type="submit" />
-        </form>
-    </>
-
+    <div>
+      <form onSubmit={handleOrder}>
+        <fieldset className="form">
+          <legend>Order Form</legend>
+          <input
+            type="text"
+            placeholder="Product ID"
+            value={productId}
+            onChange={(e) => setProductId(e.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="Quantity"
+            value={quantity}
+            onChange={(e) => setQuantity(e.target.value)}
+          />
+          <button type="submit">Place Order</button>
+        </fieldset>
+      </form>
+    </div>
   );
 }

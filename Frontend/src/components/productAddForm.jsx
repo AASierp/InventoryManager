@@ -74,7 +74,7 @@ function ProductForm({ refreshInventory }) {
   return (
     <div>
       <form id="product-form" onSubmit={addProduct}>
-        <fieldset className="product-form">
+        <fieldset className="form">
           <legend>New Product Submission Form </legend>
           <label htmlFor="id">Product Id (only for updating)</label>
           <input

@@ -18,34 +18,36 @@ function ProductList({ refreshKey }) {
   }, [refreshKey]);
 
   return (
-    <div className="inventory-container">
-      <h1 style={{ textAlign: "center" }}>Current Inventory</h1>
-      <table className="table">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Description</th>
-            <th>SKU</th>
-            <th>Quantity</th>
-            <th>Price</th>
-            <th>Category</th>
-          </tr>
-        </thead>
-        <tbody>
-          {products.map((e) => (
-            <tr key={e.id}>
-              <td>{e.id}</td>
-              <td>{e.name}</td>
-              <td>{e.description}</td>
-              <td>{e.sku}</td>
-              <td>{e.quantity}</td>
-              <td>{e.price}</td>
-              <td>{e.category}</td>
+    <div>
+      <fieldset className="form">
+        <legend>Current Inventory</legend>
+        <table className="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Description</th>
+              <th>SKU</th>
+              <th>Quantity</th>
+              <th>Price</th>
+              <th>Category</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {products.map((e) => (
+              <tr key={e.id}>
+                <td>{e.id}</td>
+                <td>{e.name}</td>
+                <td>{e.description}</td>
+                <td>{e.sku}</td>
+                <td>{e.quantity}</td>
+                <td>{e.price}</td>
+                <td>{e.category}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </fieldset>
     </div>
   );
 }

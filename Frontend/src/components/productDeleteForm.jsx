@@ -19,18 +19,21 @@ export default function DeleteProductForm({ refreshInventory }) {
   };
 
   return (
-    <>
+    <div>
       <form onSubmit={handleDelete}>
-        <input
-          placeholder="Enter Product ID"
-          type="text"
-          value={id}
-          onChange={(event) => setId(event.target.value)}
-        />
-        <button className="product-delete-btn" type="submit">
-          Delete
-        </button>
+        <fieldset className="form">
+          <legend>Delete Product</legend>
+          <input
+            placeholder="Enter Product ID"
+            type="text"
+            value={id}
+            onChange={(event) => setId(event.target.value)}
+          />
+          <button className="product-delete-btn" type="submit">
+            Delete
+          </button>
+        </fieldset>
       </form>
-    </>
+    </div>
   );
 }
