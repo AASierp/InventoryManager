@@ -1,12 +1,1 @@
-{
-  "Version": 1,
-  "Hash": "OYyyqbk9VVyaOG6o0ZgUYBPc9xMBMuGMJxNbbJ6vJVY=",
-  "Source": "InventoryManager.api",
-  "BasePath": "_content/InventoryManager.api",
-  "Mode": "Default",
-  "ManifestType": "Build",
-  "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": [],
-  "Endpoints": []
-}
+{"Version":1,"Hash":"ee7ER49sH/DL+wAiF8fFrFyCaB0wV2UALerX4hm80cM=","Source":"InventoryManager.api","BasePath":"/","Mode":"Root","ManifestType":"Build","ReferencedProjectsConfiguration":[],"DiscoveryPatterns":[],"Assets":[],"Endpoints":[]}
