@@ -10,6 +10,7 @@ table {
   margin: 1rem;
   border-collapse: collapse;
   background-color: rgba(93, 103, 91, 0.3);
+  max-width: 1000px;
 }
 
 th,
@@ -20,40 +21,76 @@ td {
 
 textarea {
   min-height: 100px;
+  font-size: 1.3rem;
 }
 
 input {
   margin: 3px;
   box-shadow: 0px 1px 2px 1px #e5e1e1;
-}
-
-table {
-  max-width: 800px;
+  font-size: 1.5rem;
 }
 
 h1 {
   text-align: center;
+  font-size: 3rem;
 }
 
 legend {
-  font-size: 1.5rem;
+  font-size: 1.7rem;
 }
+
+/* INVENTORY, ORDER AND HOME PAGES */
 
 .inventory-page-container,
-.order-page-container {
+.order-page-container,
+.home-page-container {
   display: grid;
   justify-items: center;
-  grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
+  grid-template-columns: repeat(3, 1fr);
 }
+
+/* Inventory page */
 
 .inventory-page-product-form-container {
-  grid-column: span 1;
+  margin-left: 150px;
+  justify-self: center;
 }
 
-.inventory-page-product-list-container {
-  grid-column: span 1;
+.inventory-page-product-list-container,
+.order-page-product-list-container {
+  display: flex;
+  flex-basis: 1 1;
+  justify-self: start;
+  grid-column: span 2;
 }
+
+.delete-product-button-container {
+  grid-column: span 2;
+  margin-top: 2rem;
+}
+
+/* Order Page */
+
+.order-page-order-history-container {
+  grid-column: span 1;
+  margin-top: 2rem;
+}
+
+.order-page-order-form-container {
+  grid-column: span 1;
+  justify-items: center;
+  margin-left: 150px;
+}
+
+/* Home Page */
+
+.home-page-product-list-container {
+  margin-left: 180px;
+  justify-items: center;
+}
+
+/* NAV BAR */
 
 .nav-link {
   margin: 5px;
@@ -82,7 +119,7 @@ legend {
   background-color: rgba(93, 103, 91, 0.3);
 }
 
-/* PRODUCT/INVENTORY */
+/* FORMS & TABLE */
 
 .form {
   display: flex;
@@ -93,100 +130,18 @@ legend {
   text-align: center;
   border: none;
   box-shadow: 1px 1px 8px 2px #777;
+  font-size: 1.5rem;
 }
 
 .form-update-button,
 .form-submit-button,
-.product-delete-btn {
+.product-delete-btn,
+.place-order-button,
+.login-button {
   font-weight: bold;
   background-color: #22333b;
   color: white;
-}
-
-.delete-product-button-container {
-  grid-column: span 2;
-  grid-row: span 2;
-  margin-top: 2rem;
-}
-
-/* ORDERS */
-
-/* .order-page-container {
-  display: grid;
-  justify-items: center;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: repeat(12, 1fr);
-  gap: 6rem;
-} */
-
-.order-page-order-list-container {
-  grid-column: span 3;
-  margin-top: 2rem;
-}
-
-.order-page-order-form-container {
-  grid-column: span 3;
-}
-
-.order-page-product-list-container {
-  grid-column: span 5;
-}
-
-/* HOME PAGE */
-
-.home-page-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.home-left-side {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-basis: 50%;
-  height: 100vh;
-  background-color: white;
-  color: black;
-}
-
-.home-manage-inventory-link {
-  text-decoration: 0;
-  color: black;
-  font-size: 4rem;
-}
-
-.home-left-side:has(.home-manage-inventory-link:hover) {
-  background-color: black;
-}
-
-.home-manage-inventory-link:hover {
-  color: white;
-  text-shadow: 0 0 12px rgba(255, 255, 255);
-}
-
-.home-right-side {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-basis: 50%;
-  height: 100vh;
-  background-color: black;
-}
-
-.home-place-order-link {
-  text-decoration: 0;
-  color: white;
-  font-size: 4rem;
-}
-
-.home-right-side:has(.home-place-order-link:hover) {
-  background-color: white;
-}
-
-.home-place-order-link:hover {
-  color: black;
-  text-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+  font-size: 1.3rem;
 }
 
 /* LOGIN PAGE */
@@ -200,21 +155,5 @@ legend {
   padding: 2rem;
 }
 
-.login-form-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(93, 103, 91, 0.3);
-  border-radius: 8px;
-  box-shadow: 0 0 4px white;
-  width: 100%;
-  max-width: 360px;
-  padding: 2rem;
-}
-
-.login-form {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  gap: 0.75rem;
+@media screen {
 }

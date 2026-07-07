@@ -1,18 +1,41 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function LoginForm(){
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
-    const navigate = useNavigate(); 
+export default function LoginForm() {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
-    return(
-        <div className="login-form-container">
-            <form className="login-form">
-                <input type="text" placeholder="Username" />
-                <input type="text" placeholder="Password" />
-                <button type="submit">Submit</button>
-            </form>
-        </div>
-    )
+  function handleLogin(e) {
+    e.preventDefault();
+
+    if (username && password) {
+      navigate("/home");
+    }
+  }
+
+  return (
+    <div>
+      <form className="login-form" onSubmit={handleLogin}>
+        <fieldset className="form">
+          <legend>Login</legend>
+          <input
+            type="text"
+            placeholder="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <button className="login-button" type="submit">
+            Submit
+          </button>
+        </fieldset>
+      </form>
+    </div>
+  );
 }

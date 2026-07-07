@@ -1,16 +1,19 @@
 import { Link } from "react-router-dom";
+import ProductList from "../components/ProductList";
+import OrderList from "../components/OrderList";
 
-export default function HomePage(){
-    return(
-        <div className="home-page-container">
-            <div className="home-left-side">
-                <Link className="home-manage-inventory-link" to="/inventory">Manage Inventory</Link>
-            </div>
-            <div className="home-right-side">
-                <div className="home-right-side-overlay">
-                    <Link className="home-place-order-link" to="/orders">Place An Order</Link>
-                </div>
-            </div>
+export default function HomePage() {
+  return (
+    <div>
+      <h1>DashBoard</h1>
+      <div className="home-page-container">
+        <div className="home-page-product-list-container">
+          <ProductList />
         </div>
-    );
+        <div>
+          <OrderList />
+        </div>
+      </div>
+    </div>
+  );
 }

@@ -16,19 +16,19 @@ export default function InventoryPage() {
       <div className="inventory-page-container">
         <div className="inventory-page-product-form-container">
           <ProductForm
-            className="page-item"
             refreshInventory={refreshInventory}
           />
           <div className="delete-product-button-container">
-            <DeleteProductForm
-              className="page-item"
-              refreshInventory={refreshInventory}
-            />
+          <DeleteProductForm
+           
+            refreshInventory={refreshInventory}
+          />
           </div>
         </div>
         <div className="inventory-page-product-list-container">
-          <ProductList className="page-item" refreshKey={refreshKey} />
+          <ProductList refreshKey={refreshKey} />
         </div>
+        <div />
       </div>
     </div>
   );

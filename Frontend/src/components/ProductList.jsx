@@ -20,7 +20,7 @@ function ProductList({ refreshKey }) {
   return (
     <div>
       <fieldset className="form">
-        <legend>Current Inventory</legend>
+        <legend>Inventory</legend>
         <table className="table">
           <thead>
             <tr>

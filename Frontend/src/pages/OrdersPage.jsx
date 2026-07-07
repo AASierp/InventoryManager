@@ -14,16 +14,16 @@ export default function OrdersPage() {
     <div>
       <h1>Order Management</h1>
       <div className="order-page-container">
-        <div />
           <div className="order-page-order-form-container">
-            <OrderForm  className="page-item" refreshInventory={refreshInventory} />
-          <div className="order-page-order-list-container">
-            <OrderList className="page-item" refreshKey={refreshKey} />
+            <OrderForm refreshInventory={refreshInventory} />
+          <div className="order-page-order-history-container">
+            <OrderList refreshKey={refreshKey} />
           </div>
-        </div>
-        <div className="order-page-product-list-container">
-          <ProductList className="page-item" refreshKey={refreshKey} />
-        </div>
+          </div>
+          <div className="order-page-product-list-container">
+          <ProductList refreshKey={refreshKey} />
+          </div>
+        <div />
       </div>
     </div>
   );

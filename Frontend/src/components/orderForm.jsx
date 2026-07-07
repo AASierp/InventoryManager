@@ -18,6 +18,8 @@ export default function OrderForm({ refreshInventory }) {
       console.error(error);
       throw new Error("Order could not be placed.");
     }
+    setProductId("");
+    setQuantity("");
   };
 
   return (
@@ -37,7 +39,9 @@ export default function OrderForm({ refreshInventory }) {
             value={quantity}
             onChange={(e) => setQuantity(e.target.value)}
           />
-          <button type="submit">Place Order</button>
+          <button className="place-order-button" type="submit">
+            Place Order
+          </button>
         </fieldset>
       </form>
     </div>
