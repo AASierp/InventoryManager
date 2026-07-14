@@ -11,10 +11,12 @@ namespace InventoryManager.api.Controllers
     public class OrdersController : ControllerBase
     {
         private readonly AppDbContext _context;
+        private readonly ILogger<OrdersController> _logger;
 
-        public OrdersController(AppDbContext context)
+        public OrdersController(AppDbContext context, ILogger<OrdersController> logger)
         {
             _context = context;
+            _logger = logger;
         }
 
         [HttpPost]
@@ -53,6 +55,29 @@ namespace InventoryManager.api.Controllers
         public async Task<ActionResult<IEnumerable<Order>>> GetOrders()
         {
             return await _context.Orders.Include(o => o.Product).ToListAsync();
+        }
+
+        [HttpPut("{id}/cancel")]
+        public async Task<IActionResult> CancelOrder(int id)
+        {
+            Order? order = await _context.Orders.FindAsync(id);
+
+            if (order == null)
+                return NotFound($"Order with ID {id} not found");
+            if(order.Status == "Cancelled")
+                return BadRequest("Order is already cancelled");
+
+            Product? product = await _context.Products.FindAsync(order.ProductId);
+
+            if (product == null)
+                return NotFound($"Product with ID {order.ProductId} not found.");
+            
+            order.Status = "Cancelled";
+            product.Quantity += order.Quantity;
+
+            await _context.SaveChangesAsync();
+
+            return NoContent();
         }
     }
 }

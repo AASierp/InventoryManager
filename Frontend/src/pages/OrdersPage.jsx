@@ -14,15 +14,18 @@ export default function OrdersPage() {
     <div>
       <h1>Order Management</h1>
       <div className="order-page-container">
-          <div className="order-page-order-form-container">
-            <OrderForm refreshInventory={refreshInventory} />
+        <div className="order-page-order-form-container">
+          <OrderForm refreshInventory={refreshInventory} />
           <div className="order-page-order-history-container">
             <OrderList refreshKey={refreshKey} />
           </div>
-          </div>
-          <div className="order-page-product-list-container">
+        </div>
+        <div
+          style={{ marginTop: "250px" }}
+          className="order-page-product-list-container"
+        >
           <ProductList refreshKey={refreshKey} />
-          </div>
+        </div>
         <div />
       </div>
     </div>

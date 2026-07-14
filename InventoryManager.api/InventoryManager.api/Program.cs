@@ -1,6 +1,6 @@
-
 using InventoryManager.api.DataAccessLayer;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 
 namespace InventoryManager.api
 {
@@ -8,42 +8,65 @@ namespace InventoryManager.api
     {
         public static void Main(string[] args)
         {
-            var builder = WebApplication.CreateBuilder(args);
+            Log.Logger = new LoggerConfiguration()
+                .MinimumLevel.Information()
+                .WriteTo.Console()
+                .WriteTo.File(
+                    "logs/inventory-manager.log",
+                    rollingInterval: RollingInterval.Day
+                )
+                .CreateLogger();
 
-            builder.Services.AddCors(options =>
+            try
             {
-                options.AddPolicy("AllowAll", policy => policy
-                                                .AllowAnyOrigin()
-                                                .AllowAnyMethod()
-                                                .AllowAnyHeader());
-            });
+                Log.Information("Starting Inventory Manager API");
 
-            // Add services to the container.
-            builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+                var builder = WebApplication.CreateBuilder(args);
 
-            builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-            builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
+                builder.Host.UseSerilog();
 
-            var app = builder.Build();
+                builder.Services.AddCors(options =>
+                {
+                    options.AddPolicy("AllowAll", policy => policy
+                        .AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader());
+                });
 
-            // Configure the HTTP request pipeline.
-            if (app.Environment.IsDevelopment())
-            {
-                app.UseSwagger();
-                app.UseSwaggerUI();
+                builder.Services.AddDbContext<AppDbContext>(options =>
+                    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+                builder.Services.AddControllers();
+
+                builder.Services.AddEndpointsApiExplorer();
+                builder.Services.AddSwaggerGen();
+
+                var app = builder.Build();
+
+                if (app.Environment.IsDevelopment())
+                {
+                    app.UseSwagger();
+                    app.UseSwaggerUI();
+                }
+
+                app.UseHttpsRedirection();
+
+                app.UseCors("AllowAll");
+
+                app.UseAuthorization();
+
+                app.MapControllers();
+
+                app.Run();
             }
-
-            app.UseHttpsRedirection();
-
-            app.UseAuthorization();
-
-            app.UseCors("AllowAll");
-
-            app.MapControllers();
-
-            app.Run();
+            catch (Exception ex)
+            {
+                Log.Fatal(ex, "Inventory Manager API terminated unexpectedly");
+            }
+            finally
+            {
+                Log.CloseAndFlush();
+            }
         }
     }
 }

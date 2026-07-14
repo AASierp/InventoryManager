@@ -9,5 +9,6 @@ namespace InventoryManager.api.Models
         public int Quantity { get; set; }
         public DateTime OrderDate { get; set; } = DateTime.UtcNow;
         public Product? Product { get; set; }
+        public string Status { get; set; } = "Placed";
     }
 }

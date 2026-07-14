@@ -5,6 +5,7 @@ obj/
 *.db
 *.db-journal
 .vs/
+*.log
 
 # React / Node
 node_modules/

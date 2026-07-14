@@ -27,6 +27,7 @@ export default function OrderList({ refreshKey }) {
                 <th>SKU</th>
                 <th>Quantity</th>
                 <th>Date</th>
+                <th>Status</th>
               </tr>
             </thead>
             <tbody>
@@ -38,6 +39,7 @@ export default function OrderList({ refreshKey }) {
                   <td>{order.product.sku}</td>
                   <td>{order.quantity}</td>
                   <td>{order.orderDate}</td>
+                  <td>{order.status}</td>
                 </tr>
               ))}
             </tbody>
