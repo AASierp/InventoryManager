@@ -514,3 +514,17 @@ C:\Users\A1\Desktop\Archive\Coding_Projects\InventoryManager\InventoryManager.ap
 C:\Users\A1\Desktop\Archive\Coding_Projects\InventoryManager\InventoryManager.api\inventorymanager.api\obj\Debug\net8.0\InventoryManager.api.genruntimeconfig.cache
 C:\Users\A1\Desktop\Archive\Coding_Projects\InventoryManager\InventoryManager.api\inventorymanager.api\obj\Debug\net8.0\ref\InventoryManager.api.dll
 C:\Users\A1\Desktop\Archive\Coding_Projects\InventoryManager\InventoryManager.api\inventorymanager.api\obj\Debug\net8.0\swae.build.ex.cache
+C:\Users\A1\Desktop\Archive\Coding_Projects\InventoryManager\InventoryManager.api\inventorymanager.api\bin\Debug\net8.0\Microsoft.Extensions.Configuration.dll
+C:\Users\A1\Desktop\Archive\Coding_Projects\InventoryManager\InventoryManager.api\inventorymanager.api\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\A1\Desktop\Archive\Coding_Projects\InventoryManager\InventoryManager.api\inventorymanager.api\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.Abstractions.dll
+C:\Users\A1\Desktop\Archive\Coding_Projects\InventoryManager\InventoryManager.api\inventorymanager.api\bin\Debug\net8.0\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Users\A1\Desktop\Archive\Coding_Projects\InventoryManager\InventoryManager.api\inventorymanager.api\bin\Debug\net8.0\Microsoft.Extensions.Hosting.Abstractions.dll
+C:\Users\A1\Desktop\Archive\Coding_Projects\InventoryManager\InventoryManager.api\inventorymanager.api\bin\Debug\net8.0\Serilog.dll
+C:\Users\A1\Desktop\Archive\Coding_Projects\InventoryManager\InventoryManager.api\inventorymanager.api\bin\Debug\net8.0\Serilog.AspNetCore.dll
+C:\Users\A1\Desktop\Archive\Coding_Projects\InventoryManager\InventoryManager.api\inventorymanager.api\bin\Debug\net8.0\Serilog.Extensions.Hosting.dll
+C:\Users\A1\Desktop\Archive\Coding_Projects\InventoryManager\InventoryManager.api\inventorymanager.api\bin\Debug\net8.0\Serilog.Extensions.Logging.dll
+C:\Users\A1\Desktop\Archive\Coding_Projects\InventoryManager\InventoryManager.api\inventorymanager.api\bin\Debug\net8.0\Serilog.Formatting.Compact.dll
+C:\Users\A1\Desktop\Archive\Coding_Projects\InventoryManager\InventoryManager.api\inventorymanager.api\bin\Debug\net8.0\Serilog.Settings.Configuration.dll
+C:\Users\A1\Desktop\Archive\Coding_Projects\InventoryManager\InventoryManager.api\inventorymanager.api\bin\Debug\net8.0\Serilog.Sinks.Console.dll
+C:\Users\A1\Desktop\Archive\Coding_Projects\InventoryManager\InventoryManager.api\inventorymanager.api\bin\Debug\net8.0\Serilog.Sinks.Debug.dll
+C:\Users\A1\Desktop\Archive\Coding_Projects\InventoryManager\InventoryManager.api\inventorymanager.api\bin\Debug\net8.0\Serilog.Sinks.File.dll

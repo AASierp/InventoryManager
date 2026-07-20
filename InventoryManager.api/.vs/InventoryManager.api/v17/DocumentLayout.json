@@ -52,7 +52,7 @@
               "RelativeDocumentMoniker": "InventoryManager.api\\Program.cs",
               "ToolTip": "C:\\Users\\A1\\Desktop\\Archive\\Coding_Projects\\InventoryManager\\InventoryManager.api\\InventoryManager.api\\Program.cs",
               "RelativeToolTip": "InventoryManager.api\\Program.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAgwDMAAAAqAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADMAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-07-07T15:58:05.825Z",
               "EditorCaption": ""
@@ -67,7 +67,8 @@
               "RelativeToolTip": "InventoryManager.api\\Models\\Order.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-24T19:38:42.812Z"
+              "WhenOpened": "2026-06-24T19:38:42.812Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -101,7 +102,7 @@
               "RelativeDocumentMoniker": "InventoryManager.api\\Controllers\\OrdersController.cs",
               "ToolTip": "C:\\Users\\A1\\Desktop\\Archive\\Coding_Projects\\InventoryManager\\InventoryManager.api\\InventoryManager.api\\Controllers\\OrdersController.cs",
               "RelativeToolTip": "InventoryManager.api\\Controllers\\OrdersController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAA7AAAAAAAAAA==",
+              "ViewState": "AgIAAFcAAAAAAAAAAAAkwHMAAABaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-23T00:13:56.583Z",
               "EditorCaption": ""

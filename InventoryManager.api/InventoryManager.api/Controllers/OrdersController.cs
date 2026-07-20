@@ -28,12 +28,20 @@ namespace InventoryManager.api.Controllers
                 return NotFound($"Product with ID {order.ProductId} not found.");
 
             if (product.Quantity < order.Quantity)
+            {
+                _logger.LogWarning("Order rejected due to insufficient inventory. Product {ProductId} requested {RequestedQuantity}, available {AvailableQuantity}", order.ProductId, order.Quantity, product.Quantity);
                 return BadRequest("Not enough inventory to fill order");
+            }
 
             product.Quantity -= order.Quantity;
 
+            order.Status = "Placed";
+            order.OrderDate = DateTime.UtcNow;
+
             _context.Orders.Add(order);
             await _context.SaveChangesAsync();
+
+            _logger.LogInformation("Order {OrderId} placed for product {ProductId}. Quantity: {Quantity}", order.Id, order.ProductId, order.Quantity);
 
             return CreatedAtAction(nameof(GetOrder), new {id = order.Id }, order);
 
@@ -63,20 +71,56 @@ namespace InventoryManager.api.Controllers
             Order? order = await _context.Orders.FindAsync(id);
 
             if (order == null)
+            {
+                _logger.LogWarning("Cancel failed. Order {OrderId} not found.", id);
                 return NotFound($"Order with ID {id} not found");
-            if(order.Status == "Cancelled")
-                return BadRequest("Order is already cancelled");
+            }
+               
+            if(order.Status == "Canceled")
+            {
+                _logger.LogWarning("Cancel failed. Order {OrderId} already canceled.", id);
+                return BadRequest("Order is already canceled");
+            }
 
             Product? product = await _context.Products.FindAsync(order.ProductId);
 
             if (product == null)
+            {
+                _logger.LogWarning("Cancel Failed. Product {ProductId} for Order {OrderId} not found.", order.ProductId, order.Id);
                 return NotFound($"Product with ID {order.ProductId} not found.");
+            }
+               
             
-            order.Status = "Cancelled";
+            order.Status = "Canceled";
             product.Quantity += order.Quantity;
 
             await _context.SaveChangesAsync();
 
+            _logger.LogInformation("Order {OrderId} canceled successfully. Restored {Quantity} units to Product {ProductId}.", order.Id, order.Quantity, order.ProductId);
+
+            return NoContent();
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteOrder(int id)
+        {
+            Order? order = await _context.Orders.FindAsync(id);
+
+            if (order == null)
+            {
+                _logger.LogWarning("Delete Failed. Order {OrderId} not found.", id);
+                return NotFound($"Order with ID {id} not found");
+            }
+            if (order.Status != "Canceled")
+            {
+                _logger.LogWarning("Delete Failed. Order {OrderId} is not canceled.", id);
+                return BadRequest("Only canceled orders can be deleted");
+            }
+
+            _context.Orders.Remove(order);
+            await _context.SaveChangesAsync();
+
+            _logger.LogInformation("Order {OrderId} deleted successfully.", id);
             return NoContent();
         }
     }

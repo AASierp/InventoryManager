@@ -137,6 +137,8 @@ legend {
 .form-submit-button,
 .product-delete-btn,
 .place-order-button,
+.cancel-order-button,
+.delete-order-button,
 .login-button {
   font-weight: bold;
   background-color: #22333b;
