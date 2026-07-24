@@ -43,7 +43,15 @@ function ProductList({ refreshKey }) {
                 <td>{e.name}</td>
                 <td>{e.description}</td>
                 <td>{e.sku}</td>
-                <td>{e.quantity}</td>
+                <td>
+                  {e.quantity}
+                  {e.quantity === 0 && (
+                    <p className="low-stock-alert">Out of Stock</p>
+                  )}
+                  {e.quantity > 0 && e.quantity <= 2 && (
+                    <p className="low-stock-alert">Low stock</p>
+                  )}
+                </td>
                 <td>{e.price}</td>
                 <td>{e.category}</td>
               </tr>

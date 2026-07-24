@@ -3,18 +3,34 @@ import { useState } from "react";
 
 export default function DeleteProductForm({ refreshData }) {
   const [id, setId] = useState("");
+  const [message, setMessage] = useState("");
+  const [error, setError] = useState("");
 
   const handleDelete = async (event) => {
     event.preventDefault();
+    setMessage("");
+    setError("");
+
+    const idPattern = /^[1-9]\d*$/;
+
+    if (!id) {
+      setError("Please enter an ID");
+      return;
+    }
+
+    if (!idPattern.test(id)) {
+      setError("ID must be a whole number greater than zero.");
+      return;
+    }
 
     try {
       await deleteProduct(id);
       refreshData();
-      alert("Delete Successful");
+      setMessage(`Product ${id} deleted successfully.`);
       setId("");
     } catch (error) {
       console.error(error);
-      console.log("Unable to delete specified product.");
+      setError("Unable to delete specified product.");
     }
   };
 
@@ -23,6 +39,8 @@ export default function DeleteProductForm({ refreshData }) {
       <form onSubmit={handleDelete}>
         <fieldset className="form">
           <legend>Delete Product</legend>
+          {message && <p className="success-message">{message}</p>}
+          {error && <p className="error-message">{error}</p>}
           <input
             placeholder="Enter Product ID"
             type="text"

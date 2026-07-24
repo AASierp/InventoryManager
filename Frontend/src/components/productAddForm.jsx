@@ -21,7 +21,7 @@ function ProductForm({ refreshData }) {
     setCategory("");
   };
 
-  const handleClearFunction = () => {
+  const handleClearForm = () => {
     clearData();
     setMessage("");
     setError("");
@@ -72,7 +72,7 @@ function ProductForm({ refreshData }) {
     setError("");
 
     const pricePattern = /^\d+(\.\d{1,2})?$/;
-    const quantityPattern = /^\d*$/;
+    const quantityPattern = /^\d+$/;
 
     if (!pricePattern.test(price) || Number(price) <= 0) {
       setError(
@@ -233,7 +233,7 @@ function ProductForm({ refreshData }) {
           <button
             type="button"
             className="clear-form-button"
-            onClick={handleClearFunction}
+            onClick={handleClearForm}
           >
             Clear Form
           </button>

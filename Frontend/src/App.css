@@ -47,6 +47,11 @@ legend {
   font-size: 1rem;
 }
 
+.success-message{
+  color: white;
+  font-size: 1rem;
+}
+
 /* INVENTORY, ORDER AND HOME PAGES */
 
 .inventory-page-container,
@@ -76,6 +81,11 @@ legend {
 .delete-product-button-container {
   grid-column: span 2;
   margin-top: 2rem;
+}
+
+.low-stock-alert {
+  color: red;
+  font-size: 1rem;
 }
 
 /* Order Page */
