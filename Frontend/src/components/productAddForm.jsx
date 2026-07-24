@@ -1,53 +1,121 @@
 import { useState } from "react";
-import { postProduct, putProduct } from "../api/productsAPI";
+import { getProductById, postProduct, putProduct } from "../api/productsAPI";
 
-function ProductForm({ refreshInventory }) {
+function ProductForm({ refreshData }) {
   const [id, setId] = useState("");
   const [name, setName] = useState("");
   const [sku, setSku] = useState("");
-  const [quantity, setQuantity] = useState(0);
-  const [price, setPrice] = useState(0);
+  const [quantity, setQuantity] = useState("");
+  const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
+  const [message, setMessage] = useState("");
+  const [error, setError] = useState("");
+
+  const clearData = () => {
+    setName("");
+    setSku("");
+    setQuantity("");
+    setPrice("");
+    setDescription("");
+    setCategory("");
+  };
+
+  const handleClearFunction = () => {
+    clearData();
+    setMessage("");
+    setError("");
+    setId("");
+  };
+
+  const handleLoadProduct = async (id) => {
+    setMessage("");
+    setError("");
+    clearData();
+
+    if (!id) {
+      setError("Please enter a valid ID.");
+      return;
+    }
+
+    try {
+      const formData = await getProductById(id);
+
+      setName(formData.name);
+      setSku(formData.sku);
+      setQuantity(String(formData.quantity));
+      setPrice(String(formData.price));
+      setDescription(formData.description);
+      setCategory(formData.category);
+    } catch (error) {
+      console.error(error);
+      setError(error.message);
+    }
+  };
 
   const buildProduct = () => ({
-    name,
-    sku,
-    quantity,
-    price,
-    description,
-    category,
+    name: name.trim(),
+    sku: sku.trim(),
+    quantity: Number(quantity),
+    price: Number(price),
+    description: description.trim(),
+    category: category.trim(),
   });
 
   const buildProductForUpdate = () => ({
     id: Number(id),
-    name,
-    sku,
-    quantity,
-    price,
-    description,
-    category,
+    ...buildProduct(),
   });
+
+  const productValidation = () => {
+    setMessage("");
+    setError("");
+
+    const pricePattern = /^\d+(\.\d{1,2})?$/;
+    const quantityPattern = /^\d*$/;
+
+    if (!pricePattern.test(price) || Number(price) <= 0) {
+      setError(
+        "Price must be greater than 0 and may include up to  two decimal places.",
+      );
+      return false;
+    }
+    if (!quantityPattern.test(quantity)) {
+      setError("Quantity must be a whole number.");
+      return false;
+    }
+
+    if (
+      name.trim() === "" ||
+      sku.trim() === "" ||
+      description.trim() === "" ||
+      category.trim() === ""
+    ) {
+      setError("All fields are requried.");
+      return false;
+    }
+    return true;
+  };
 
   const addProduct = async (event) => {
     event.preventDefault();
+
+    if (!productValidation()) {
+      return;
+    }
 
     const product = buildProduct();
 
     try {
       await postProduct(product);
 
-      refreshInventory();
+      refreshData();
+      clearData();
 
-      setName("");
-      setSku("");
-      setQuantity(0);
-      setPrice(0);
-      setDescription("");
-      setCategory("");
+      setMessage("Product added successfully");
     } catch (error) {
       console.error(error);
-      console.log("Item Could not be added to the inventory.");
+      setError(error.message || "Product could not be added.");
     }
   };
 
@@ -55,16 +123,23 @@ function ProductForm({ refreshInventory }) {
     event.preventDefault();
 
     if (!id) {
-        alert("Please enter an ID number to update");
-        return;
-      }
+      alert("Please enter an ID number to update");
+      return;
+    }
+
+    if (!productValidation()) {
+      return;
+    }
 
     const product = buildProductForUpdate();
 
     try {
       await putProduct(id, product);
-      refreshInventory();
-      alert("Product updated successfully");
+      refreshData();
+      setMessage("Product updated successfully");
+
+      clearData();
+      setId("");
     } catch (error) {
       console.error(error);
       console.log("Item could not be updated");
@@ -73,9 +148,13 @@ function ProductForm({ refreshInventory }) {
 
   return (
     <div>
-      <form id="product-form" onSubmit={addProduct}>
+      <form id="product-form" onSubmit={addProduct} noValidate>
         <fieldset className="form">
           <legend>New Product Submission Form </legend>
+
+          {message && <p className="success-message">{message}</p>}
+          {error && <p className="error-message">{error}</p>}
+
           <label htmlFor="id">Product Id (only for updating)</label>
           <input
             id="id"
@@ -83,6 +162,13 @@ function ProductForm({ refreshInventory }) {
             value={id}
             onChange={(event) => setId(event.target.value)}
           />
+          <button
+            type="button"
+            className="load-prod-button"
+            onClick={(e) => handleLoadProduct(id)}
+          >
+            Load Product
+          </button>
           <label htmlFor="name">Product Name</label>
           <input
             id="name"
@@ -115,7 +201,7 @@ function ProductForm({ refreshInventory }) {
             min="0"
             step=".01"
             value={price}
-            onChange={(e) => setPrice(Number(e.target.value))}
+            onChange={(e) => setPrice(e.target.value)}
           />
           <label htmlFor="category">Category</label>
           <input
@@ -132,7 +218,7 @@ function ProductForm({ refreshInventory }) {
             required
             min="0"
             value={quantity}
-            onChange={(e) => setQuantity(Number(e.target.value))}
+            onChange={(e) => setQuantity(e.target.value)}
           />
           <button className="form-submit-button" type="submit">
             Add Product
@@ -143,6 +229,13 @@ function ProductForm({ refreshInventory }) {
             onClick={updateProduct}
           >
             Update Product
+          </button>
+          <button
+            type="button"
+            className="clear-form-button"
+            onClick={handleClearFunction}
+          >
+            Clear Form
           </button>
         </fieldset>
       </form>

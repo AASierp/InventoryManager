@@ -30,7 +30,7 @@ export async function postOrder(order) {
     const data = await response.json();
     return data;
   } catch (error) {
-    console.error(error);
+    console.error("Failed to submit order", error);
     throw error;
   }
 }

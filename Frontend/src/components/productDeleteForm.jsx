@@ -1,7 +1,7 @@
 import { deleteProduct } from "../api/productsAPI";
 import { useState } from "react";
 
-export default function DeleteProductForm({ refreshInventory }) {
+export default function DeleteProductForm({ refreshData }) {
   const [id, setId] = useState("");
 
   const handleDelete = async (event) => {
@@ -9,7 +9,7 @@ export default function DeleteProductForm({ refreshInventory }) {
 
     try {
       await deleteProduct(id);
-      refreshInventory();
+      refreshData();
       alert("Delete Successful");
       setId("");
     } catch (error) {

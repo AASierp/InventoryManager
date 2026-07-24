@@ -24,7 +24,8 @@ textarea {
   font-size: 1.3rem;
 }
 
-input {
+input,
+select {
   margin: 3px;
   box-shadow: 0px 1px 2px 1px #e5e1e1;
   font-size: 1.5rem;
@@ -37,6 +38,13 @@ h1 {
 
 legend {
   font-size: 1.7rem;
+}
+
+/* GLOBAL */
+
+.error-message {
+  color: red;
+  font-size: 1rem;
 }
 
 /* INVENTORY, ORDER AND HOME PAGES */
@@ -139,6 +147,8 @@ legend {
 .place-order-button,
 .cancel-order-button,
 .delete-order-button,
+.load-prod-button,
+.clear-form-button,
 .login-button {
   font-weight: bold;
   background-color: #22333b;

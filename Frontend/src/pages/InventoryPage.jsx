@@ -6,7 +6,7 @@ import DeleteProductForm from "../components/ProductDeleteForm";
 export default function InventoryPage() {
   const [refreshKey, setRefreshKey] = useState(0);
 
-  const refreshInventory = () => {
+  const refreshData = () => {
     setRefreshKey((prev) => prev + 1);
   };
 
@@ -15,14 +15,9 @@ export default function InventoryPage() {
       <h1>Inventory Management</h1>
       <div className="inventory-page-container">
         <div className="inventory-page-product-form-container">
-          <ProductForm
-            refreshInventory={refreshInventory}
-          />
+          <ProductForm refreshData={refreshData} />
           <div className="delete-product-button-container">
-          <DeleteProductForm
-           
-            refreshInventory={refreshInventory}
-          />
+            <DeleteProductForm refreshData={refreshData} />
           </div>
         </div>
         <div className="inventory-page-product-list-container">

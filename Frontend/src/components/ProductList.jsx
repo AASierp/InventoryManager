@@ -3,6 +3,7 @@ import { getProduct } from "../api/productsAPI";
 
 function ProductList({ refreshKey }) {
   const [products, setProducts] = useState([]);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -10,6 +11,7 @@ function ProductList({ refreshKey }) {
         let data = await getProduct();
         setProducts(data);
       } catch (err) {
+        setError("Error Fetching Products...");
         console.log("Error Fetching Products", err);
       }
     };
@@ -20,6 +22,7 @@ function ProductList({ refreshKey }) {
   return (
     <div>
       <fieldset className="form">
+        {error && <p className="error-message">{error}</p>}
         <legend>Inventory</legend>
         <table className="table">
           <thead>

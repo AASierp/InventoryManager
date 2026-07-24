@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { getOrders, cancelOrder, deleteOrder } from "../api/ordersAPI";
 
-export default function OrderList({ refreshKey }) {
+export default function OrderList({ refreshKey, refreshData }) {
   const [orders, setOrders] = useState([]);
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
@@ -22,6 +22,9 @@ export default function OrderList({ refreshKey }) {
     try {
       await cancelOrder(id);
       await fetchOrders();
+
+      refreshData();
+
       setMessage(`Order ${id} canceled successfully.`);
     } catch (err) {
       setError(err.message || `Failed to cancel order`);
@@ -49,11 +52,12 @@ export default function OrderList({ refreshKey }) {
 
   return (
     <div>
-      {message && <p className="success-message">{message}</p>}
-      {error && <p className="error-message">{error}</p>}
-
       <fieldset className="form">
         <legend>Order History</legend>
+
+        {message && <p className="success-message">{message}</p>}
+        {error && <p className="error-message">{error}</p>}
+
         <div>
           <table>
             <thead>
@@ -74,7 +78,7 @@ export default function OrderList({ refreshKey }) {
                   <td>{order.id}</td>
                   <td>{order.productId}</td>
                   <td>{order.product?.name}</td>
-                  <td>{order.product.sku}</td>
+                  <td>{order.product?.sku}</td>
                   <td>{order.quantity}</td>
                   <td>{order.orderDate}</td>
                   <td>
@@ -91,7 +95,6 @@ export default function OrderList({ refreshKey }) {
                         type="button"
                         className="cancel-order-button"
                         onClick={() => handleCancelOrder(order.id)}
-                        disable={order.status === "Canceled"}
                       >
                         {" "}
                         Cancel{" "}

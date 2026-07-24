@@ -1,12 +1,12 @@
 import OrderForm from "../components/OrderForm";
-import OrderList from "../components/orderList";
+import OrderList from "../components/OrderList";
 import ProductList from "../components/ProductList";
 import { useState } from "react";
 
 export default function OrdersPage() {
   const [refreshKey, setRefreshKey] = useState(0);
 
-  const refreshInventory = () => {
+  const refreshData = () => {
     setRefreshKey((prev) => prev + 1);
   };
 
@@ -15,9 +15,9 @@ export default function OrdersPage() {
       <h1>Order Management</h1>
       <div className="order-page-container">
         <div className="order-page-order-form-container">
-          <OrderForm refreshInventory={refreshInventory} />
+          <OrderForm refreshData={refreshData} />
           <div className="order-page-order-history-container">
-            <OrderList refreshKey={refreshKey} />
+            <OrderList refreshKey={refreshKey} refreshData={refreshData} />
           </div>
         </div>
         <div
