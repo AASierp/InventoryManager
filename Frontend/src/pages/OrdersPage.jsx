@@ -15,7 +15,7 @@ export default function OrdersPage() {
       <h1>Order Management</h1>
       <div className="order-page-container">
         <div className="order-page-order-form-container">
-          <OrderForm refreshData={refreshData} />
+          <OrderForm refreshData={refreshData} refreshKey={refreshKey} />
           <div className="order-page-order-history-container">
             <OrderList refreshKey={refreshKey} refreshData={refreshData} />
           </div>

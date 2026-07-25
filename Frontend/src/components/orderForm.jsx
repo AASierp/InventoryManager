@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { postOrder } from "../api/ordersAPI";
 import { getProduct } from "../api/productsAPI";
 
-export default function OrderForm({ refreshData }) {
+export default function OrderForm({ refreshData, refreshKey }) {
   const [productId, setProductId] = useState("");
   const [quantity, setQuantity] = useState("");
   const [message, setMessage] = useState("");
@@ -21,7 +21,7 @@ export default function OrderForm({ refreshData }) {
 
   useEffect(() => {
     fetchProducts();
-  }, []);
+  }, [refreshKey]);
 
   const handleQuantityChange = (e) => {
     const value = e.target.value;

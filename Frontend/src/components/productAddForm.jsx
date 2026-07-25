@@ -12,6 +12,8 @@ function ProductForm({ refreshData }) {
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
 
+  const idPattern = /^[1-9]\d*$/;
+
   const clearData = () => {
     setName("");
     setSku("");
@@ -20,6 +22,24 @@ function ProductForm({ refreshData }) {
     setDescription("");
     setCategory("");
   };
+
+  const productValidation = () => {
+    setMessage("");
+    setError("");
+
+    const pricePattern = /^\d+(\.\d{1,2})?$/;
+    const quantityPattern = /^\d+$/;
+
+    if (!pricePattern.test(price) || Number(price) <= 0) {
+      setError(
+        "Price must be greater than 0 and may include up to  two decimal places.",
+      );
+      return false;
+    }
+    if (!quantityPattern.test(quantity)) {
+      setError("Quantity must be a whole number.");
+      return false;
+    }
 
   const handleClearForm = () => {
     clearData();
@@ -35,6 +55,11 @@ function ProductForm({ refreshData }) {
 
     if (!id) {
       setError("Please enter a valid ID.");
+      return;
+    }
+
+    if (!idPattern.test(id)) {
+      setError("Id must be a whole number greater than 0.");
       return;
     }
 
@@ -67,23 +92,6 @@ function ProductForm({ refreshData }) {
     ...buildProduct(),
   });
 
-  const productValidation = () => {
-    setMessage("");
-    setError("");
-
-    const pricePattern = /^\d+(\.\d{1,2})?$/;
-    const quantityPattern = /^\d+$/;
-
-    if (!pricePattern.test(price) || Number(price) <= 0) {
-      setError(
-        "Price must be greater than 0 and may include up to  two decimal places.",
-      );
-      return false;
-    }
-    if (!quantityPattern.test(quantity)) {
-      setError("Quantity must be a whole number.");
-      return false;
-    }
 
     if (
       name.trim() === "" ||
@@ -91,7 +99,7 @@ function ProductForm({ refreshData }) {
       description.trim() === "" ||
       category.trim() === ""
     ) {
-      setError("All fields are requried.");
+      setError("All fields are required.");
       return false;
     }
     return true;
@@ -123,7 +131,12 @@ function ProductForm({ refreshData }) {
     event.preventDefault();
 
     if (!id) {
-      alert("Please enter an ID number to update");
+      setError("Please enter an ID number to update");
+      return;
+    }
+
+    if (!idPattern.test(id)) {
+      setError("Id must be a whole number greater than 0.");
       return;
     }
 
@@ -142,7 +155,7 @@ function ProductForm({ refreshData }) {
       setId("");
     } catch (error) {
       console.error(error);
-      console.log("Item could not be updated");
+      setError(error.message || "Product could not be updated");
     }
   };
 
