@@ -23,24 +23,6 @@ function ProductForm({ refreshData }) {
     setCategory("");
   };
 
-  const productValidation = () => {
-    setMessage("");
-    setError("");
-
-    const pricePattern = /^\d+(\.\d{1,2})?$/;
-    const quantityPattern = /^\d+$/;
-
-    if (!pricePattern.test(price) || Number(price) <= 0) {
-      setError(
-        "Price must be greater than 0 and may include up to  two decimal places.",
-      );
-      return false;
-    }
-    if (!quantityPattern.test(quantity)) {
-      setError("Quantity must be a whole number.");
-      return false;
-    }
-
   const handleClearForm = () => {
     clearData();
     setMessage("");
@@ -59,7 +41,7 @@ function ProductForm({ refreshData }) {
     }
 
     if (!idPattern.test(id)) {
-      setError("Id must be a whole number greater than 0.");
+      setError("ID must be a whole number greater than 0.");
       return;
     }
 
@@ -74,7 +56,7 @@ function ProductForm({ refreshData }) {
       setCategory(formData.category);
     } catch (error) {
       console.error(error);
-      setError(error.message);
+      setError(error.message || "Product could not be loaded.");
     }
   };
 
@@ -92,6 +74,24 @@ function ProductForm({ refreshData }) {
     ...buildProduct(),
   });
 
+  const productValidation = () => {
+    setMessage("");
+    setError("");
+
+    const pricePattern = /^\d+(\.\d{1,2})?$/;
+    const quantityPattern = /^\d+$/;
+
+    if (!pricePattern.test(price) || Number(price) <= 0) {
+      setError(
+        "Price must be greater than 0 and may include up to two decimal places.",
+      );
+      return false;
+    }
+
+    if (!quantityPattern.test(quantity)) {
+      setError("Quantity must be a whole number.");
+      return false;
+    }
 
     if (
       name.trim() === "" ||
@@ -102,6 +102,7 @@ function ProductForm({ refreshData }) {
       setError("All fields are required.");
       return false;
     }
+
     return true;
   };
 
@@ -131,12 +132,12 @@ function ProductForm({ refreshData }) {
     event.preventDefault();
 
     if (!id) {
-      setError("Please enter an ID number to update");
+      setError("Please enter an ID number to update.");
       return;
     }
 
     if (!idPattern.test(id)) {
-      setError("Id must be a whole number greater than 0.");
+      setError("ID must be a whole number greater than 0.");
       return;
     }
 
@@ -148,14 +149,15 @@ function ProductForm({ refreshData }) {
 
     try {
       await putProduct(id, product);
-      refreshData();
-      setMessage("Product updated successfully");
 
+      refreshData();
       clearData();
       setId("");
+
+      setMessage("Product updated successfully");
     } catch (error) {
       console.error(error);
-      setError(error.message || "Product could not be updated");
+      setError(error.message || "Product could not be updated.");
     }
   };
 
@@ -175,13 +177,15 @@ function ProductForm({ refreshData }) {
             value={id}
             onChange={(event) => setId(event.target.value)}
           />
+
           <button
             type="button"
             className="load-prod-button"
-            onClick={(e) => handleLoadProduct(id)}
+            onClick={() => handleLoadProduct(id)}
           >
             Load Product
           </button>
+
           <label htmlFor="name">Product Name</label>
           <input
             id="name"
@@ -190,6 +194,7 @@ function ProductForm({ refreshData }) {
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
+
           <label htmlFor="sku">SKU</label>
           <input
             id="sku"
@@ -198,6 +203,7 @@ function ProductForm({ refreshData }) {
             value={sku}
             onChange={(e) => setSku(e.target.value)}
           />
+
           <label htmlFor="description">Description</label>
           <textarea
             id="description"
@@ -206,6 +212,7 @@ function ProductForm({ refreshData }) {
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
+
           <label htmlFor="price">Price</label>
           <input
             id="price"
@@ -216,6 +223,7 @@ function ProductForm({ refreshData }) {
             value={price}
             onChange={(e) => setPrice(e.target.value)}
           />
+
           <label htmlFor="category">Category</label>
           <input
             id="category"
@@ -224,6 +232,7 @@ function ProductForm({ refreshData }) {
             value={category}
             onChange={(e) => setCategory(e.target.value)}
           />
+
           <label htmlFor="quantity">Quantity</label>
           <input
             id="quantity"
@@ -233,9 +242,11 @@ function ProductForm({ refreshData }) {
             value={quantity}
             onChange={(e) => setQuantity(e.target.value)}
           />
+
           <button className="form-submit-button" type="submit">
             Add Product
           </button>
+
           <button
             className="form-update-button"
             type="button"
@@ -243,6 +254,7 @@ function ProductForm({ refreshData }) {
           >
             Update Product
           </button>
+
           <button
             type="button"
             className="clear-form-button"

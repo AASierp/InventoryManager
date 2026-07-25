@@ -42,7 +42,7 @@ namespace InventoryManager.api.Controllers
         [HttpPost]
         public async Task<ActionResult<Product>> AddProduct(Product product)
         {
-            IActionResult? validationResult = ValidateProduct(product);
+            ActionResult? validationResult = ValidateProduct(product);
 
             if (validationResult != null)
             {
@@ -57,7 +57,7 @@ namespace InventoryManager.api.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateProduct(int id, Product product)
+        public async Task<ActionResult> UpdateProduct(int id, Product product)
         {
             
             if (id != product.Id)
@@ -65,7 +65,7 @@ namespace InventoryManager.api.Controllers
                 return BadRequest("Product ID mismatch");
             }
 
-            IActionResult? validationResult = ValidateProduct(product);
+            ActionResult? validationResult = ValidateProduct(product);
 
             if (validationResult != null)
             {
@@ -106,7 +106,7 @@ namespace InventoryManager.api.Controllers
 
         }
 
-        private IActionResult? ValidateProduct(Product product)
+        private ActionResult? ValidateProduct(Product product)
         {
             if (string.IsNullOrWhiteSpace(product.Name))
             {
