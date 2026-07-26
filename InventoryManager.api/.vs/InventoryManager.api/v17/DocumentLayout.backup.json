@@ -7,20 +7,16 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:InventoryManager.api\\Controllers\\OrdersController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\A1\\Desktop\\Archive\\Coding_Projects\\InventoryManager\\InventoryManager.api\\InventoryManager.api\\Models\\Order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:InventoryManager.api\\Models\\Order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\A1\\Desktop\\Archive\\Coding_Projects\\InventoryManager\\InventoryManager.api\\InventoryManager.api\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:InventoryManager.api\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\A1\\Desktop\\Archive\\Coding_Projects\\InventoryManager\\InventoryManager.api\\InventoryManager.api\\Controllers\\ProductsController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:InventoryManager.api\\Controllers\\ProductsController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\A1\\Desktop\\Archive\\Coding_Projects\\InventoryManager\\InventoryManager.api\\InventoryManager.api\\DataAccessLayer\\AppDbContext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:InventoryManager.api\\DataAccessLayer\\AppDbContext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\A1\\Desktop\\Archive\\Coding_Projects\\InventoryManager\\InventoryManager.api\\InventoryManager.api\\Models\\Product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:InventoryManager.api\\Models\\Product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\A1\\Desktop\\Archive\\Coding_Projects\\InventoryManager\\InventoryManager.api\\InventoryManager.api\\Models\\Order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:InventoryManager.api\\Models\\Order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,65 +42,53 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\A1\\Desktop\\Archive\\Coding_Projects\\InventoryManager\\InventoryManager.api\\InventoryManager.api\\Program.cs",
-              "RelativeDocumentMoniker": "InventoryManager.api\\Program.cs",
-              "ToolTip": "C:\\Users\\A1\\Desktop\\Archive\\Coding_Projects\\InventoryManager\\InventoryManager.api\\InventoryManager.api\\Program.cs",
-              "RelativeToolTip": "InventoryManager.api\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADMAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-07T15:58:05.825Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Order.cs",
-              "DocumentMoniker": "C:\\Users\\A1\\Desktop\\Archive\\Coding_Projects\\InventoryManager\\InventoryManager.api\\InventoryManager.api\\Models\\Order.cs",
-              "RelativeDocumentMoniker": "InventoryManager.api\\Models\\Order.cs",
-              "ToolTip": "C:\\Users\\A1\\Desktop\\Archive\\Coding_Projects\\InventoryManager\\InventoryManager.api\\InventoryManager.api\\Models\\Order.cs",
-              "RelativeToolTip": "InventoryManager.api\\Models\\Order.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-24T19:38:42.812Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "AppDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\A1\\Desktop\\Archive\\Coding_Projects\\InventoryManager\\InventoryManager.api\\InventoryManager.api\\DataAccessLayer\\AppDbContext.cs",
-              "RelativeDocumentMoniker": "InventoryManager.api\\DataAccessLayer\\AppDbContext.cs",
-              "ToolTip": "C:\\Users\\A1\\Desktop\\Archive\\Coding_Projects\\InventoryManager\\InventoryManager.api\\InventoryManager.api\\DataAccessLayer\\AppDbContext.cs",
-              "RelativeToolTip": "InventoryManager.api\\DataAccessLayer\\AppDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-09T17:13:41.83Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ProductsController.cs",
-              "DocumentMoniker": "C:\\Users\\A1\\Desktop\\Archive\\Coding_Projects\\InventoryManager\\InventoryManager.api\\InventoryManager.api\\Controllers\\ProductsController.cs",
-              "RelativeDocumentMoniker": "InventoryManager.api\\Controllers\\ProductsController.cs",
-              "ToolTip": "C:\\Users\\A1\\Desktop\\Archive\\Coding_Projects\\InventoryManager\\InventoryManager.api\\InventoryManager.api\\Controllers\\ProductsController.cs",
-              "RelativeToolTip": "InventoryManager.api\\Controllers\\ProductsController.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAAEUAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-23T00:13:58.302Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "OrdersController.cs",
               "DocumentMoniker": "C:\\Users\\A1\\Desktop\\Archive\\Coding_Projects\\InventoryManager\\InventoryManager.api\\InventoryManager.api\\Controllers\\OrdersController.cs",
               "RelativeDocumentMoniker": "InventoryManager.api\\Controllers\\OrdersController.cs",
               "ToolTip": "C:\\Users\\A1\\Desktop\\Archive\\Coding_Projects\\InventoryManager\\InventoryManager.api\\InventoryManager.api\\Controllers\\OrdersController.cs",
               "RelativeToolTip": "InventoryManager.api\\Controllers\\OrdersController.cs",
-              "ViewState": "AgIAAD4AAAAAAAAAAAAgwFwAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAGQAAAAAAAAAAAAiwHMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-23T00:13:56.583Z",
+              "WhenOpened": "2026-07-25T17:50:38.746Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Product.cs",
+              "DocumentMoniker": "C:\\Users\\A1\\Desktop\\Archive\\Coding_Projects\\InventoryManager\\InventoryManager.api\\InventoryManager.api\\Models\\Product.cs",
+              "RelativeDocumentMoniker": "InventoryManager.api\\Models\\Product.cs",
+              "ToolTip": "C:\\Users\\A1\\Desktop\\Archive\\Coding_Projects\\InventoryManager\\InventoryManager.api\\InventoryManager.api\\Models\\Product.cs",
+              "RelativeToolTip": "InventoryManager.api\\Models\\Product.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-24T21:31:07.131Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Order.cs",
+              "DocumentMoniker": "C:\\Users\\A1\\Desktop\\Archive\\Coding_Projects\\InventoryManager\\InventoryManager.api\\InventoryManager.api\\Models\\Order.cs",
+              "RelativeDocumentMoniker": "InventoryManager.api\\Models\\Order.cs",
+              "ToolTip": "C:\\Users\\A1\\Desktop\\Archive\\Coding_Projects\\InventoryManager\\InventoryManager.api\\InventoryManager.api\\Models\\Order.cs",
+              "RelativeToolTip": "InventoryManager.api\\Models\\Order.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-24T21:31:05.259Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ProductsController.cs",
+              "DocumentMoniker": "C:\\Users\\A1\\Desktop\\Archive\\Coding_Projects\\InventoryManager\\InventoryManager.api\\InventoryManager.api\\Controllers\\ProductsController.cs",
+              "RelativeDocumentMoniker": "InventoryManager.api\\Controllers\\ProductsController.cs",
+              "ToolTip": "C:\\Users\\A1\\Desktop\\Archive\\Coding_Projects\\InventoryManager\\InventoryManager.api\\InventoryManager.api\\Controllers\\ProductsController.cs",
+              "RelativeToolTip": "InventoryManager.api\\Controllers\\ProductsController.cs",
+              "ViewState": "AgIAAHQAAAAAAAAAAAAkwJwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-24T21:30:57.737Z",
               "EditorCaption": ""
             }
           ]

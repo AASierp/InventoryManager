@@ -22,6 +22,18 @@ namespace InventoryManager.api.Controllers
         [HttpPost]
         public async Task<ActionResult<Order>> PlaceOrder(Order order)
         {
+
+            if(order.Quantity <= 0)
+            {
+                _logger.LogWarning("Order rejected due to invalid order quantity. Product {ProductId} Quantity {Quantity}", order.ProductId, order.Quantity);
+                return BadRequest("Order quantity must be greater than zero.");
+            }
+
+            if(order.ProductId <= 0)
+            {
+                return BadRequest("Product ID must be greater than zero.");
+            }
+
             Product? product = await _context.Products.FindAsync(order.ProductId);
 
             if (product == null)
@@ -42,6 +54,7 @@ namespace InventoryManager.api.Controllers
             await _context.SaveChangesAsync();
 
             _logger.LogInformation("Order {OrderId} placed for product {ProductId}. Quantity: {Quantity}", order.Id, order.ProductId, order.Quantity);
+
 
             return CreatedAtAction(nameof(GetOrder), new {id = order.Id }, order);
 
