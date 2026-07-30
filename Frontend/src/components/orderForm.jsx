@@ -89,7 +89,6 @@ export default function OrderForm({ refreshData, refreshKey }) {
               </option>
             ))}
           </select>
-
           <input
             type="text"
             inputMode="numeric"
